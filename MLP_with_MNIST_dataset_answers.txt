@@ -1,0 +1,29 @@
+IT22105134
+
+Question ->
+
+Text cell:  
+Now, let's try out several hidden layer sizes. 
+Tuning hidden layer size (optional/ungraded exercise)¶ 
+Run the following code. It may take 1-2 minutes. You will observe different behaviors of the 
+model for various hidden layer sizes. 
+Code cell: 
+# This may take about 2 minutes to run
+hidden_layer_sizes = [1, 2, 3, 4, 5, 20, 50] 
+for i, n_h in enumerate(hidden_layer_sizes): 
+parameters = nn_model(X, Y, n_h, num_iterations = 5000) 
+# plot_decision_boundary(lambda x: predict(parameters, x.T), X, Y) 
+predictions = predict(parameters, X) 
+accuracy = float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100) 
+print ("Accuracy for {} hidden units: {} %".format(n_h, accuracy)) 
+
+Answers ->
+/tmp/ipython-input-237806182.py:9: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  accuracy = float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100)
+Accuracy for 1 hidden units: 67.5 %
+Accuracy for 2 hidden units: 67.25 %
+Accuracy for 3 hidden units: 90.75 %
+Accuracy for 4 hidden units: 90.5 %
+Accuracy for 5 hidden units: 91.25 %
+Accuracy for 20 hidden units: 90.0 %
+Accuracy for 50 hidden units: 90.25 %
